@@ -31,13 +31,15 @@
     "grunt-karma": "0.9.0",
     "karma": "0.12.25",
     "karma-jasmine": "0.2.3",
-    "karma-coverage": "0.2.6"
+    "karma-coverage": "0.2.6",
+    "ng-html2js": "~2.0.0",
+    "karma-ng-html2js-preprocessor": "~0.1.2"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-	"postinstall": "node_modules/.bin/bower install",
-	"test": "grunt test"
+    "postinstall": "bower install",
+    "test": "grunt test"
   }
 }

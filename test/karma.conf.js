@@ -26,6 +26,7 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
+      'app/templates/**/*.html',
       'app/scripts/**/*.js',
 //      'test/mock/**/*.js',
       'test/spec/**/*.js'
@@ -53,14 +54,24 @@ module.exports = function(config) {
     plugins: [
       'karma-phantomjs-launcher',
       'karma-jasmine',
-	  'karma-coverage'
+	  'karma-coverage',
+      'karma-ng-html2js-preprocessor'
     ],
+    
 	preprocessors: {
 	  // source files, that you wanna generate coverage for
 	  // do not include tests or libraries
 	  // (these files will be instrumented by Istanbul)
-	  'app/**/*.js': ['coverage']
+	  'app/**/*.js': ['coverage'],
+      
+      // Loading directive templates for testing
+      'app/templates/**/*.html': ['ng-html2js']
 	},
+    
+    ngHtml2JsPreprocessor: { 
+      stripPrefix: 'app/', 
+      moduleName: 'fi.templates' 
+    },
 
 	// Continuous Integration mode
     // if true, it capture browsers, run tests and exit

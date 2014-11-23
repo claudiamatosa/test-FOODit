@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc service
- * @name jstestApp.Menuservice
+ * @name jstestApp.MenuService
  * @description
  * # MenuService
  * Service in the jstestApp.
