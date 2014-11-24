@@ -14,14 +14,17 @@ angular.module('jstestApp')
     
     function link (scope, element) {
       element.bind('click', function () {
-        scope.$emit('status-expand', !scope.expanded);
+        scope.$emit('status-expand-' + scope.expandable);
       });
     }
     
     var settings = {
       restrict: 'A',
       replace: 'false',
-      link: link
+      link: link,
+      scope: {
+        expandable: '@'
+      }
     };
 
     return settings;

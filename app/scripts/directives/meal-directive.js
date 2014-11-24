@@ -54,11 +54,13 @@ angular.module('jstestApp')
     function link (scope, element) {
       scope.meal.tags = filterTags(scope.meal.tags);
       scope.expanded = (scope.expanded === 'true');
-      scope.meal.price = parseFloat(scope.meal.price)
-        .toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
       
-      scope.$on('status-expand', function (event, value) {
-        scope.expanded = value;
+      scope.addToBasket = function (item) {
+        scope.$emit('add-to-basket', item);
+      };
+      
+      scope.$on('status-expand-meal', function (event, value) {
+        scope.expanded = !scope.expanded;
         element.scope().$apply();
       });
     }

@@ -2,7 +2,7 @@
          ng-class="expanded ? 'expanded' : 'collapsed'"
          itemtype="http://schema.org/Product"
          itemscope>
-  <header fi-expander>
+  <header expandable="meal" fi-expander>
     <section class="fi-meal__info">
       <h4 class="fi-meal__name"
           itemprop="name">
@@ -24,7 +24,7 @@
     <p class="fi-meal__price"
        itemprop="price">
       <span class="content button-blue">
-        {{meal.price}}
+        {{ meal.price|price }}
       </span>
     </p>
   </header>
@@ -38,6 +38,7 @@
       <button class="fi-meal__expander"
         title="Expand"
         ng-if="meal.description.length > 100"
+        expandable="meal"
         fi-expander></button>
     </p>
 
@@ -46,7 +47,8 @@
       {{ meal.description }}
     </p>
   
-    <button class="button-blue fi-meal__add-to-order">
+    <button class="button-blue fi-meal__add-to-order"
+            ng-click="addToBasket(meal)">
       Add To Your Order
     </button>
   </section>

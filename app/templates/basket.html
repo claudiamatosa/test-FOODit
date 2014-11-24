@@ -1,0 +1,47 @@
+<section class="fi-basket"
+         ng-controller="BasketCtrl as basket"
+         ng-class="expanded ? 'expanded' : 'collapsed'"
+         ng-cloak>
+         
+  <section class="fi-basket--collapsed"
+           ng-if="!expanded"
+           expandable="basket"
+           fi-expander>
+    <section class="fi-basket__info empty"
+             ng-if="!basket.hasProducts()">
+      It's time to order some delicious food
+    </section>
+    
+    <section class="full"
+             ng-if="basket.hasProducts()">
+        <p class="fi-basket__info fi-basket__total">
+          {{ basket.total|price }}
+        </p>
+    </section>
+  </section>
+  
+  <section class="fi-basket--expanded"
+           ng-if="expanded">
+           
+    <h2 class="fi-basket__title">Your Order</h2>
+    <p class="fi-basket__description">{{ restaurantName }}</p>
+   
+    <ul class="fi-basket__items"
+        ng-if="basket.hasProducts()">
+        
+      <li class="fi-basket__items__item"
+          ng-repeat="item in basket.items">
+        <span class="quantity">{{ item.quantity }}</span>
+        <span class="name">{{ item.name }}</span>
+        <span class="price">{{ item.price }}</span>
+      </li>
+      
+    </ul>
+    
+    <button class="button-white fi-basket__close"
+            expandable="basket"
+            fi-expander>
+      Close basket
+    </button>
+  </section>
+</section>

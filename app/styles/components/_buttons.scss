@@ -1,10 +1,23 @@
-.button-blue {
-  background-color: $blue;
+@mixin button () {
   border: none;
   border-radius: 2px;
-  color: $white;
-  font-size: scaled-value($text_size--base, 20, 1px);
   font-style: italic;
   padding: 10px;
   text-align: center;
+}
+
+.button-blue {
+  background-color: $blue;
+  color: $white;
+  font-size: scaled-value($text_size--base, 20, 1px);
+  
+  @include button;
+}
+
+.button-white {
+  background-color: $white;
+  color: darken($red, 10%);
+  font-size: scaled-value($text_size--base, 20, 1px);
+  
+  @include button;
 }
