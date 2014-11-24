@@ -1,0 +1,147 @@
+// Lists tags available to be styled
+// TODO: Use an extension to detect files available in the tags folder
+$tags:
+  'charcoal',
+  'cheese',
+  'chicken',
+  'grilled',
+  'high-protein',
+  'lamb',
+  'pasta',
+  'peanut',
+  'pork',
+  'seafood',
+  'snack',
+  'spicy',
+  'starter',
+  'sweet',
+  'vegetarian';
+
+$card-border-radius: 3px;
+
+@mixin tag-styles () {
+  @each $tag in $tags {
+    &.tag--#{$tag} {
+      background: transparent url('#{$images-url}tags/#{$tag}.svg') center center no-repeat;
+      display: inline-block;
+    }
+  }
+}
+
+@mixin curve-settings () {
+  content: '';
+  height: 17px;
+  width: 120%;
+  position: absolute;
+  left: -10%;
+  background-size: 100%;
+  z-index: 0;
+}
+
+.fi-meal {
+  background-color: $white;
+  border: lighten($grey, 55%) 1px solid;
+  border-radius: $card-border-radius;
+  box-shadow: 1px 1px 4px lighten($grey, 55%);
+  margin: 20px 0;
+  padding-bottom: 5px;
+  
+  header {
+    height: 268px;
+    overflow: hidden;
+    position: relative;
+    transition: all 1s ease;
+  }
+  
+  meal-card__curve {
+    width: 100%;
+  }
+  
+  &__info {
+    background-color: rgba(210, 210, 210, 0.8);
+    border: none;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    
+    &:after {
+      background: transparent url(#{$images-url}meal-card/curve-grey.svg) top left no-repeat;
+      opacity: 0.8;
+      top: -17px;
+      
+      @include curve-settings;
+    }
+    
+    &:before {
+      background: transparent url(#{$images-url}meal-card/curve-white.svg) top left no-repeat;
+      bottom: 0;
+      
+      @include curve-settings;
+    }
+  }
+  
+  &__name {
+    color: $grey;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 23px;
+    margin: 5px 0 35px 0;
+  }
+  
+  &__image {
+    border-radius: $card-border-radius;
+    width: 100%;
+  }
+  
+  &__description {
+    padding: 5px 20px;
+  }
+  
+  &__price {}
+  
+  &__add-to-order {
+    margin: 15px 0;
+    width: 100%;
+  }
+  
+  &__expander {
+    background: transparent url('#{$images-url}meal-card/expand-button.svg') center center no-repeat;
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    height: 12px;
+    vertical-align: middle;
+    width: 33px;
+  }
+  
+  &__tags {
+    bottom: 0;
+    left: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    
+    &__tag {
+      display: none;
+      height: 26px;
+      margin: 0;
+      padding: 0;
+      width: 27px;
+      
+      @include tag-styles;
+    }
+  }
+  
+  &.expanded {
+    header {
+      height: 125px;
+    }
+  }
+}

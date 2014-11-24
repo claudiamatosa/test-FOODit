@@ -1,4 +1,10 @@
-<ul class="meals">
+<section class="meals"
+         ng-cloak>
+  <header>
+    <h1 ng-if="restaurantName">{{ restaurantName }}</h1>
+  </header>
+ 
   <fi-meal ng-repeat="meal in menu.meals"
-           meal="meal"></fi-meal>
-</ul>
+           meal="meal"
+           expanded="false"></fi-meal>
+</section>

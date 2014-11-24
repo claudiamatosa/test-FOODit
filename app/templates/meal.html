@@ -1,6 +1,51 @@
-<li class="meal">
-  <h4 class="name">{{meal.name}}</h4>
-  <img class="image" ng-src="{{meal.primaryImageUrl}}">
-  <p class="description">{{meal.description}}</p>
-  <p class="price">{{meal.price}}</p>
-</li>
+<article class="fi-meal"
+         ng-class="expanded ? 'expanded' : 'collapsed'"
+         itemtype="http://schema.org/Product"
+         itemscope>
+  <header fi-expander>
+    <section class="fi-meal__info">
+      <h4 class="fi-meal__name"
+          itemprop="name">
+          {{meal.name}}
+      </h4>
+    
+      <ul class="fi-meal__tags">
+        <li class="fi-meal__tags__tag"
+            ng-repeat="tag in meal.tags"
+            ng-class="'tag--' + tag.name"
+            ng-attr-title="{{ tag.name }}"></li>
+      </ul>
+    </section>
+   
+    <img class="fi-meal__image"
+         ng-src="{{meal.primaryImageUrl}}"
+         itemprop="image">
+
+    <p class="fi-meal__price button-blue"
+       itemprop="price">
+      {{meal.price}}
+    </p>
+  </header>
+          
+  <section class="fi-meal__description"
+     itemprop="description">
+    <p class="summary"
+          ng-if="!expanded">
+      {{ meal.description|limitTo:110 }}
+      
+      <button class="fi-meal__expander"
+        title="Expand"
+        fi-expander></button>
+    </p>
+
+    <p class="full"
+          ng-if="expanded">
+      {{ meal.description }}
+    </p>
+  
+    <button class="button-blue fi-meal__add-to-order">
+      Add to your order
+    </button>
+  </section>
+  
+</article>

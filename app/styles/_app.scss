@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+[ng-cloak] {
+  display: none;
+}
+
+body {
+  background-color: lighten($grey, 60%);
+  color: $grey;
+  margin: 0;
+  min-width: 320px;
+  padding: 0;
+}
+
+.meals {
+  padding: 20px;
+}

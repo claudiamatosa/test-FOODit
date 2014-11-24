@@ -1,0 +1,11 @@
+.button-blue {
+  background-color: $blue;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px lighten($grey, 40%);
+  color: $white;
+  font-size: 15px;
+  font-style: italic;
+  padding: 10px;
+  text-align: center;
+}

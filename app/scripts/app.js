@@ -17,6 +17,9 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+
+  .value('restaurantName', 'Your Delicious Restaurant')
+  
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
