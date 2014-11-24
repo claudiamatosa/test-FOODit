@@ -46,11 +46,26 @@ $card-border-radius: 3px;
   margin: 20px 0;
   padding-bottom: 5px;
   
+  @media only screen and (min-width: 680px) {
+    display: inline-block;
+    max-width: 300px;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+  
   header {
-    height: 268px;
+    height: 205px;
     overflow: hidden;
     position: relative;
     transition: all 1s ease;
+    
+    @media only screen and (min-width: 460px) {
+      height: 265px;
+    }
+    
+    @media only screen and (min-width: 680px) {
+      height: 205px;
+    }
   }
   
   meal-card__curve {
@@ -101,7 +116,21 @@ $card-border-radius: 3px;
     padding: 5px 20px;
   }
   
-  &__price {}
+  &__price {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 5px 0;
+    
+    .content {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      font-weight: bold;
+      padding: 5px 10px;
+    }
+  }
   
   &__add-to-order {
     margin: 15px 0;

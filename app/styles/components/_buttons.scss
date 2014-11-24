@@ -2,9 +2,8 @@
   background-color: $blue;
   border: none;
   border-radius: 2px;
-  box-shadow: 1px 1px 2px lighten($grey, 40%);
   color: $white;
-  font-size: 15px;
+  font-size: scaled-value($text_size--base, 20, 1px);
   font-style: italic;
   padding: 10px;
   text-align: center;

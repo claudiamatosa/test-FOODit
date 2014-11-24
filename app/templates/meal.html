@@ -21,9 +21,11 @@
          ng-src="{{meal.primaryImageUrl}}"
          itemprop="image">
 
-    <p class="fi-meal__price button-blue"
+    <p class="fi-meal__price"
        itemprop="price">
-      {{meal.price}}
+      <span class="content button-blue">
+        {{meal.price}}
+      </span>
     </p>
   </header>
           
@@ -31,10 +33,11 @@
      itemprop="description">
     <p class="summary"
           ng-if="!expanded">
-      {{ meal.description|limitTo:110 }}
+      {{ meal.description|truncate:65 }}
       
       <button class="fi-meal__expander"
         title="Expand"
+        ng-if="meal.description.length > 100"
         fi-expander></button>
     </p>
 
@@ -44,7 +47,7 @@
     </p>
   
     <button class="button-blue fi-meal__add-to-order">
-      Add to your order
+      Add To Your Order
     </button>
   </section>
   
