@@ -59,7 +59,7 @@ angular.module('jstestApp')
         scope.$emit('add-to-basket', item);
       };
       
-      scope.$on('status-expand-meal', function (event, value) {
+      scope.$on('status-expand-meal', function () {
         scope.expanded = !scope.expanded;
         element.scope().$apply();
       });

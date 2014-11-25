@@ -13,7 +13,7 @@ angular.module('jstestApp')
   .directive('fiBasket', [function() { 
     
     function link (scope, element) {
-      scope.$on('status-expand-basket', function (event, value) {
+      scope.$on('status-expand-basket', function () {
         scope.expanded = !scope.expanded;
         element.scope().$apply();
       });

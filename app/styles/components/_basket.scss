@@ -1,3 +1,9 @@
+@mixin basket-style () {
+    background-color: lighten($red, 10%);
+    border: darken($red, 10%) 1px solid;
+    border-radius: 3px;
+}
+
 .fi-basket {
   background-color: $red;
   color: $white;
@@ -10,11 +16,10 @@
   z-index: 200;
   
   &__info {
-    background-color: lighten($red, 10%);
-    border: darken($red, 10%) 1px solid;
-    border-radius: 2px;
     margin: 0;
     padding: 5px;
+    
+    @include basket-style;
   }
   
   &__total {
@@ -22,7 +27,7 @@
   }
   
   &__close {
-    margin-top: 20px;
+    margin: 15px 0;
   }
   
   &__title {
@@ -34,6 +39,48 @@
     font-style: italic;
     margin-top: 0;
   }
+  
+  &__items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    &__item {
+      height: 50px;
+      line-height: 50px;
+      margin: 15px 0;
+      
+      @include basket-style;
+      
+      .quantity, .name, .price {
+        display: inline-block;
+      }
+      
+      .name, .price {
+        font-size: 16px;
+      }
+      
+      .quantity {
+        background-color: $red;
+        font-size: 10px;
+        vertical-align: top;
+        height: 100%;
+        text-align: center;
+        width: 20px;
+      }
+      
+      .name {
+        padding: 0 10px;
+      }
+      
+      .price {
+        float: right;
+        padding: 0 10px;
+        height: 100%;
+      }
+    }
+  }
+  
   
   &--collapsed {}
   &--expanded {}

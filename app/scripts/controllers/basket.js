@@ -10,6 +10,7 @@
 angular.module('jstestApp')
   .controller('BasketCtrl', ['$rootScope', function ($rootScope) {
     var basket = this,
+        item,
         key;
     
 	this.items = {};
@@ -20,7 +21,11 @@ angular.module('jstestApp')
         this.items = JSON.parse(localStorage.getItem('products'));
         
         for (key in this.items) {
-          this.total += parseFloat(this.items[key].price);
+          if (this.items.hasOwnProperty(key)) {
+            item = this.items[key];
+              
+            this.total += parseFloat(item.price) * item.quantity;
+          }
         }
       }
     };

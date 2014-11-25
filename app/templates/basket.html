@@ -7,10 +7,10 @@
            ng-if="!expanded"
            expandable="basket"
            fi-expander>
-    <section class="fi-basket__info empty"
+    <p class="fi-basket__info empty"
              ng-if="!basket.hasProducts()">
       It's time to order some delicious food
-    </section>
+    </p>
     
     <section class="full"
              ng-if="basket.hasProducts()">
@@ -33,7 +33,7 @@
           ng-repeat="item in basket.items">
         <span class="quantity">{{ item.quantity }}</span>
         <span class="name">{{ item.name }}</span>
-        <span class="price">{{ item.price }}</span>
+        <span class="price">{{ item.price|price }}</span>
       </li>
       
     </ul>
